@@ -1,0 +1,57 @@
+{
+  "tag_name": "v0.0.8",
+  "html_url": "https://github.com/king-of-Jupiter/hopdock/releases/tag/v0.0.8",
+  "published_at": "2026-10-13T23:30:34Z",
+  "assets": [
+    {
+      "name": "Hopdock-0.0.8-arm64-mac.zip",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-0.0.8-arm64-mac.zip",
+      "size": 113365244
+    },
+    {
+      "name": "Hopdock-0.0.8-arm64-mac.zip.blockmap",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-0.0.8-arm64-mac.zip.blockmap",
+      "size": 118851
+    },
+    {
+      "name": "Hopdock-0.0.8-arm64.dmg",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-0.0.8-arm64.dmg",
+      "size": 112235734
+    },
+    {
+      "name": "Hopdock-0.0.8-arm64.dmg.blockmap",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-0.0.8-arm64.dmg.blockmap",
+      "size": 117964
+    },
+    {
+      "name": "Hopdock-0.0.8.AppImage",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-0.0.8.AppImage",
+      "size": 136052497
+    },
+    {
+      "name": "Hopdock-Setup-0.0.8.exe",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-Setup-0.0.8.exe",
+      "size": 91793785
+    },
+    {
+      "name": "Hopdock-Setup-0.0.8.exe.blockmap",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/Hopdock-Setup-0.0.8.exe.blockmap",
+      "size": 96308
+    },
+    {
+      "name": "latest-linux.yml",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/latest-linux.yml",
+      "size": 366
+    },
+    {
+      "name": "latest-mac.yml",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/latest-mac.yml",
+      "size": 505
+    },
+    {
+      "name": "latest.yml",
+      "browser_download_url": "https://github.com/king-of-Jupiter/hopdock/releases/download/v0.0.8/latest.yml",
+      "size": 342
+    }
+  ]
+}

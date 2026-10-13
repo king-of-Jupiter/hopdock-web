@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-10-13T23:17:24.222Z",
+  "captureMethod": "Electron BrowserWindow.webContents.capturePage()",
+  "version": "0.0.7",
+  "viewport": {
+    "width": 1440,
+    "height": 580
+  },
+  "sha256": "2461daeeaa0fd5c6a105eea2f8ecd30b6642e02dfe7304250ea71de6d6f6e2db",
+  "profile": "Temporary isolated profile; no normal user data accessed",
+  "ssh": "Real localhost SSH2 transport and PTY; deterministic fixture command output, not an Ubuntu host",
+  "metrics": {
+    "authenticated": 1,
+    "commands": [
+      "uname -a",
+      "df -h",
+      "uptime"
+    ],
+    "resizes": [
+      {
+        "cols": 141,
+        "rows": 29,
+        "width": 0,
+        "height": 0
+      }
+    ]
+  },
+  "limitations": [
+    "Fixture uname/df/uptime values are deterministic sample data.",
+    "Cloud sync is not connected and not represented as enabled.",
+    "No generative image processing or screenshot UI edits."
+  ]
+}

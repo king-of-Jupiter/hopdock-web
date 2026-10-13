@@ -1,0 +1,80 @@
+[
+  {
+    "name": "confirmation",
+    "subject": "{{ if eq .Data.language \"ru\" }}Подтвердите email{{ else }}Confirm your email{{ end }} · Hopdock",
+    "content_path": "supabase/templates/confirmation.html",
+    "notification": false
+  },
+  {
+    "name": "recovery",
+    "subject": "{{ if eq .Data.language \"ru\" }}Восстановление пароля{{ else }}Reset your password{{ end }} · Hopdock",
+    "content_path": "supabase/templates/recovery.html",
+    "notification": false
+  },
+  {
+    "name": "invite",
+    "subject": "{{ if eq .Data.language \"ru\" }}Вас пригласили в Hopdock{{ else }}You are invited to Hopdock{{ end }} · Hopdock",
+    "content_path": "supabase/templates/invite.html",
+    "notification": false
+  },
+  {
+    "name": "magic_link",
+    "subject": "{{ if eq .Data.language \"ru\" }}Вход в Hopdock{{ else }}Sign in to Hopdock{{ end }} · Hopdock",
+    "content_path": "supabase/templates/magic_link.html",
+    "notification": false
+  },
+  {
+    "name": "email_change",
+    "subject": "{{ if eq .Data.language \"ru\" }}Подтвердите смену email{{ else }}Confirm your email change{{ end }} · Hopdock",
+    "content_path": "supabase/templates/email_change.html",
+    "notification": false
+  },
+  {
+    "name": "reauthentication",
+    "subject": "{{ if eq .Data.language \"ru\" }}Код подтверждения{{ else }}Your verification code{{ end }} · Hopdock",
+    "content_path": "supabase/templates/reauthentication.html",
+    "notification": false
+  },
+  {
+    "name": "password_changed_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Пароль аккаунта изменён{{ else }}Account password changed{{ end }} · Hopdock",
+    "content_path": "supabase/templates/password_changed_notification.html",
+    "notification": true
+  },
+  {
+    "name": "email_changed_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Адрес аккаунта изменён{{ else }}Account email changed{{ end }} · Hopdock",
+    "content_path": "supabase/templates/email_changed_notification.html",
+    "notification": true
+  },
+  {
+    "name": "phone_changed_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Телефон аккаунта изменён{{ else }}Account phone changed{{ end }} · Hopdock",
+    "content_path": "supabase/templates/phone_changed_notification.html",
+    "notification": true
+  },
+  {
+    "name": "identity_linked_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Добавлен способ входа{{ else }}Sign-in method added{{ end }} · Hopdock",
+    "content_path": "supabase/templates/identity_linked_notification.html",
+    "notification": true
+  },
+  {
+    "name": "identity_unlinked_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Удалён способ входа{{ else }}Sign-in method removed{{ end }} · Hopdock",
+    "content_path": "supabase/templates/identity_unlinked_notification.html",
+    "notification": true
+  },
+  {
+    "name": "mfa_factor_enrolled_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Добавлен способ проверки{{ else }}Verification method added{{ end }} · Hopdock",
+    "content_path": "supabase/templates/mfa_factor_enrolled_notification.html",
+    "notification": true
+  },
+  {
+    "name": "mfa_factor_unenrolled_notification",
+    "subject": "{{ if eq .Data.language \"ru\" }}Удалён способ проверки{{ else }}Verification method removed{{ end }} · Hopdock",
+    "content_path": "supabase/templates/mfa_factor_unenrolled_notification.html",
+    "notification": true
+  }
+]
