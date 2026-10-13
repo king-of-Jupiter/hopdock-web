@@ -1,0 +1,110 @@
+[
+  {
+    "columns": "60% 40%",
+    "language": "ru",
+    "overflow": [],
+    "viewport": [
+      320,
+      720
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "en",
+    "overflow": [],
+    "viewport": [
+      320,
+      720
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "ru",
+    "overflow": [],
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "en",
+    "overflow": [],
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "ru",
+    "overflow": [],
+    "viewport": [
+      768,
+      1024
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "en",
+    "overflow": [],
+    "viewport": [
+      768,
+      1024
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "ru",
+    "overflow": [],
+    "viewport": [
+      980,
+      820
+    ]
+  },
+  {
+    "columns": "60% 40%",
+    "language": "en",
+    "overflow": [],
+    "viewport": [
+      980,
+      820
+    ]
+  },
+  {
+    "columns": "605.391px 403.594px",
+    "language": "ru",
+    "overflow": [],
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "columns": "605.391px 403.594px",
+    "language": "en",
+    "overflow": [],
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "columns": "887.891px 478.094px",
+    "language": "ru",
+    "overflow": [],
+    "viewport": [
+      1366,
+      768
+    ]
+  },
+  {
+    "columns": "887.891px 478.094px",
+    "language": "en",
+    "overflow": [],
+    "viewport": [
+      1366,
+      768
+    ]
+  }
+]
