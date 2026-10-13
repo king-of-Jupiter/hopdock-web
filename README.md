@@ -13,8 +13,8 @@ npm run dev -- --host 127.0.0.1 --port 4173
 В .env.local укажите URL и публичный publishable key проекта Hopdock. Это не пароль и не service_role. Использовать публичную конфигурацию из Variables основного репозитория. .env.local исключён из Git. Сервер/хостинг backend не нужен: браузер обращается напрямую к Supabase Auth и GitHub API.
 
 ```sh
-npm test
 npm run build
+npm test
 ```
 
 Готовые статические файлы: dist/client. Дополнительный Worker из шаблона не требуется для GitHub Pages. В .github/workflows/pages.yml подготовлен build/deploy. Репозиторий создан приватным; публикация выключена.

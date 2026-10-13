@@ -22,7 +22,6 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - run: npm test
       - run: node scripts/update-release-snapshot.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -32,6 +31,7 @@ jobs:
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
           VITE_SITE_URL: ${{ vars.SITE_URL || 'https://king-of-Jupiter.github.io/hopdock-web/' }}
           VITE_BASE_PATH: ${{ vars.BASE_PATH || '/hopdock-web/' }}
+      - run: npm test
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
