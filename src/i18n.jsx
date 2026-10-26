@@ -49,8 +49,8 @@ const en = {
     "The latest release has no Intel build. Check the available versions on GitHub.",
   "Hopdock работает на компьютере. Выберите нужную систему или откройте релизы.":
     "Hopdock runs on desktop. Choose a system or browse releases.",
-  " · сохранённый релиз": " · saved release",
-  " · последний релиз": " · latest release",
+  "Сохранённый релиз": "Saved release",
+  "Последний релиз": "Latest release",
   "Все файлы на GitHub": "All files on GitHub",
   "Не удалось получить список файлов. Скачать приложение можно на странице релизов.":
     "Could not load the files. Download the app from the releases page.",

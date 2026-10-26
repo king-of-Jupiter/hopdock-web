@@ -8,7 +8,6 @@ import {
   Folder,
   TerminalWindow,
   CloudArrowUp,
-  ArrowRight,
 } from "@phosphor-icons/react";
 import { REPO_URL, getStars } from "./github";
 import { DownloadArea } from "./DownloadArea";
@@ -68,6 +67,32 @@ function GithubLink() {
     </a>
   );
 }
+function featureList(t) {
+  return [
+    [
+      Folder,
+      t("Хосты и группы"),
+      t("Организуйте подключения по проектам и окружениям."),
+    ],
+    [
+      Key,
+      t("SSH-ключи"),
+      t("Храните ключи и используйте их для подключения."),
+    ],
+    [
+      TerminalWindow,
+      t("Терминал и сниппеты"),
+      t("Запускайте сохранённые команды в текущей оболочке."),
+    ],
+    [
+      CloudArrowUp,
+      t("Синхронизация"),
+      t(
+        "Переносите хосты, пароли, ключи и сниппеты между устройствами со сквозным шифрованием.",
+      ),
+    ],
+  ];
+}
 function Features({ close, triggerRef }) {
   const { t } = useI18n();
   const dialogRef = useRef(null);
@@ -115,30 +140,7 @@ function Features({ close, triggerRef }) {
         <p className="feature-intro">
           {t("Всё необходимое для повседневной работы по SSH.")}
         </p>
-        {[
-          [
-            Folder,
-            t("Хосты и группы"),
-            t("Организуйте подключения по проектам и окружениям."),
-          ],
-          [
-            Key,
-            t("SSH-ключи"),
-            t("Храните ключи и используйте их для подключения."),
-          ],
-          [
-            TerminalWindow,
-            t("Терминал и сниппеты"),
-            t("Запускайте сохранённые команды в текущей оболочке."),
-          ],
-          [
-            CloudArrowUp,
-            t("Синхронизация"),
-            t(
-              "Переносите хосты, пароли, ключи и сниппеты между устройствами со сквозным шифрованием.",
-            ),
-          ],
-        ].map(([Icon, title, text]) => (
+        {featureList(t).map(([Icon, title, text]) => (
           <div className="feature-row" key={title}>
             <Icon size={28} weight="light" />
             <div>
@@ -155,7 +157,6 @@ function Features({ close, triggerRef }) {
         >
           <GithubLogo size={20} />
           {t(" Посмотреть проект на GitHub ")}
-          <ArrowRight size={18} />
         </a>
       </div>
     </dialog>
@@ -202,7 +203,7 @@ export function App() {
         {t("Перейти к аккаунту")}
       </a>
       <div className="site-shell">
-        <header className="site-header">
+        <header className="container site-header">
           <a
             className="brand"
             href={import.meta.env.BASE_URL}
@@ -250,19 +251,28 @@ export function App() {
             </button>
           </nav>
         </header>
-        <main className="main-grid">
-          <section className="hero" aria-labelledby="hero-title">
+        <main>
+          <section className="container hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">
+              {t("Ваши серверы.")}
+              <br />
+              {t("Ваш порядок.")}
+            </h1>
             <div className="hero-copy">
-              <h1 id="hero-title">
-                {t("Ваши серверы.")}
-                <br />
-                {t("Ваш порядок.")}
-              </h1>
               <p className="hero-subtitle">
                 {t("SSH, ключи и команды — в одном рабочем пространстве.")}
               </p>
               <DownloadArea downloadRef={downloadRef} />
+              <button
+                className="mobile-features"
+                type="button"
+                onClick={() => setFeatures(true)}
+              >
+                {t("Возможности")}
+              </button>
             </div>
+          </section>
+          <div className="container product-preview-wrap">
             <figure className="product-preview">
               <img
                 src={`${import.meta.env.BASE_URL}assets/terminal-preview.png`}
@@ -275,22 +285,53 @@ export function App() {
                 draggable="false"
               />
             </figure>
-            <button
-              className="mobile-features"
-              type="button"
-              onClick={() => setFeatures(true)}
-            >
-              {t("Возможности")} <ArrowRight size={16} />
-            </button>
+          </div>
+          <section
+            className="container features"
+            aria-labelledby="features-section-title"
+          >
+            <h2 id="features-section-title">
+              {t("Рабочее место")} {t("для ваших серверов.")}
+            </h2>
+            <p className="feature-intro">
+              {t("Всё необходимое для повседневной работы по SSH.")}
+            </p>
+            <div className="feature-grid">
+              {featureList(t).map(([Icon, title, text]) => (
+                <div className="feature-row" key={title}>
+                  <Icon size={32} weight="light" />
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              ))}
+            </div>
           </section>
-          <AuthPanel
-            mode={mode}
-            setMode={setMode}
-            panelRef={panelRef}
-            busy={busy}
-            setBusy={setBusy}
-          />
+          <div className="account-band">
+            <div className="container account-grid">
+              <div className="account-pitch">
+                <CloudArrowUp size={40} weight="light" />
+                <h3>{featureList(t)[3][1]}</h3>
+                <p>{featureList(t)[3][2]}</p>
+              </div>
+              <AuthPanel
+                mode={mode}
+                setMode={setMode}
+                panelRef={panelRef}
+                busy={busy}
+                setBusy={setBusy}
+              />
+            </div>
+          </div>
         </main>
+        <footer className="container site-footer">
+          <a className="brand" href={import.meta.env.BASE_URL} aria-label={t("Hopdock — главная")}>
+            <img src={`${import.meta.env.BASE_URL}assets/hopdock-mark.svg`} width="32" height="32" alt="" />
+            <span>hopdock</span>
+          </a>
+          <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
+            {t(" Посмотреть проект на GitHub ")}
+          </a>
+        </footer>
       </div>
       {features && (
         <Features close={() => setFeatures(false)} triggerRef={featuresRef} />

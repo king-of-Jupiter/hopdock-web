@@ -7,7 +7,6 @@ import {
   DownloadSimple,
   CircleNotch,
   CaretDown,
-  ArrowRight,
 } from "@phosphor-icons/react";
 import {
   RELEASES_URL,
@@ -164,14 +163,12 @@ export function DownloadArea({ downloadRef }) {
           )}
           {release && (
             <p className="release-note">
-              {release.tag_name}
               {source === "snapshot"
-                ? t(" · сохранённый релиз")
-                : t(" · последний релиз")}{" "}
-              ·{" "}
+                ? t("Сохранённый релиз")
+                : t("Последний релиз")}
+              : {release.tag_name}
               <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer">
                 {t("Все файлы на GitHub ")}
-                <ArrowRight size={13} />
               </a>
             </p>
           )}
