@@ -1,8 +1,3 @@
-/* Hallmark · shape: Stacked poster · genre: modern-minimal · theme: brand · redesign: full
- * paper: oklch(97.6% 0.008 95) · accent: oklch(42% 0.06 125) · display: Lora · body: Source Sans 3 · hero: Poster (headline over a copy and action row) · nav: edge-aligned wordmark, quiet links · footer: mast with wordmark and GitHub · signature: the real terminal capture in a dark frame
- * axes: warm/serif/moss · posture: split · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: the four feature columns are equal, so the icon sits inline with the heading to keep them from reading as tiles */
-/* Hallmark · waive 77 · layout.md § 3 names one-screen product sites; content is kept, so no sections are added · the owner forbids new content in a redesign */
 @import url("./tokens.css");
 @import url("./base.css");
 @import "@fontsource/lora/latin-600.css";

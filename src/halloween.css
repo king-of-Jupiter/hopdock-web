@@ -1,0 +1,150 @@
+/* Halloween edition: paper, moss, old game covers and photocopied ephemera. */
+:root {
+  --color-paper: #f3f1e7;
+  --color-paper-2: #e8e7da;
+  --color-paper-3: #d9dacc;
+  --color-ink: #24281e;
+  --color-ink-2: #484e3e;
+  --color-muted: #626653;
+  --color-rule: #c9ccba;
+  --color-edge: #7a806c;
+  --color-accent: #465834;
+  --color-accent-hover: #344426;
+  --color-accent-ink: #faf8ef;
+  --color-accent-soft: #e0e5ce;
+  --color-focus: #8e4227;
+  --color-stage: #24281f;
+  --color-stage-rule: #4a513f;
+  --radius-card: 3px;
+  --radius-field: 3px;
+  --section-gap-s: 100px;
+}
+.site-shell {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23465834' opacity='.035' filter='url(%23grain)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.site-header { min-height: 100px; position: relative; }
+.site-header::after { content: ""; position: absolute; bottom: 0; left: var(--gutter); right: var(--gutter); border-bottom: 1px solid var(--color-rule); }
+.brand span { letter-spacing: -.055em; }
+.github-link { border-color: var(--color-rule); }
+.login-button { border-color: var(--color-ink); color: var(--color-ink); }
+.hero { padding-block: 26px 34px; }
+.season-label, .section-index, .preview-caption, .art-caption, .footer-season {
+  font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+}
+.season-label { display: flex; align-items: center; gap: 9px; color: var(--color-accent); }
+.season-label > span:last-child { margin-left: auto; font-variant-numeric: tabular-nums; color: var(--color-muted); }
+.season-dot { display: inline-block; width: 7px; height: 7px; background: #a04b2e; border-radius: 50%; flex-shrink: 0; }
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: center; gap: 12px; }
+.hero-main { position: relative; z-index: 1; padding-block: 48px 26px; }
+.hero h1 { font-size: clamp(3rem, 6.3vw, 5.7rem); line-height: 1.04; letter-spacing: -.065em; }
+.hero h1 em { display: inline-block; font-style: normal; color: var(--color-accent); position: relative; }
+.hero h1 em::after { content: ""; position: absolute; left: 3px; right: 4px; bottom: -9px; height: 8px; border-top: 2px solid var(--color-accent); border-radius: 50%; transform: rotate(-1.5deg); opacity: .65; }
+.hero-copy { gap: 25px; margin-top: 35px; }
+.hero-subtitle { max-width: 30ch; font-size: 1.4rem; line-height: 1.4; }
+.download-button { background: var(--color-ink); box-shadow: 4px 4px 0 #b7c39e; font-size: 1.1rem; min-height: 54px; }
+.download-button:hover { background: var(--color-accent); transform: translateY(-2px); }
+.download-caption { font-size: .9rem; margin-top: 14px; }
+.platform-picker { margin-top: 0; }
+.haunted-art { position: relative; align-self: stretch; min-height: 480px; display: flex; align-items: center; justify-content: center; }
+.haunted-art > img { width: 115%; max-width: none; flex-shrink: 0; height: auto; transform: rotate(2deg); }
+.art-caption { position: absolute; top: 25px; right: 0; color: var(--color-muted); z-index: 1; font-size: .65rem; }
+.art-sticker { position: absolute; bottom: 30px; right: -4px; padding: 13px 19px; background: #dce3c5; border: 1px solid #798467; color: #344426; font-size: 1rem; line-height: 1.25; font-weight: 600; transform: rotate(-7deg); box-shadow: 3px 3px 0 #24281e; }
+.preview-caption { display: flex; gap: 15px; justify-content: space-between; margin-bottom: 15px; color: var(--color-muted); }
+.product-preview-wrap { position: relative; padding-bottom: 100px; }
+.product-preview { padding: 24px 24px 0; border-radius: 5px; border: 1px solid #161d12; box-shadow: 9px 9px 0 #b9c29e; }
+.product-preview img { border-radius: 2px; }
+.product-preview figcaption { display: flex; align-items: center; gap: 8px; min-height: 46px; color: #c9d1b4; font-size: .75rem; letter-spacing: .03em; }
+.product-preview figcaption .season-dot { background: #b4c88a; width: 5px; height: 5px; }
+.product-preview figcaption > span:last-child { margin-left: auto; color: #a3ac92; }
+.section-index { margin-bottom: 28px; color: var(--color-muted); }
+.features { padding-bottom: 110px; }
+.features h2 { max-width: 20ch; font-size: clamp(2.25rem, 4vw, 3.8rem); letter-spacing: -.045em; }
+.features .feature-intro { margin-bottom: 48px; max-width: 36ch; }
+.feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 70px; counter-reset: features; }
+.feature-grid .feature-row { position: relative; padding: 28px 40px 30px 0; border-top: 1px solid var(--color-edge); gap: 12px; counter-increment: features; }
+.feature-grid .feature-row::after { content: "0" counter(features); position: absolute; top: 29px; right: 0; font-size: .75rem; color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.feature-grid .feature-row p { max-width: 44ch; margin-top: 0; }
+.feature-grid .feature-row h3 { font-size: 1.5rem; }
+.account-band { --color-paper: #23291f; --color-paper-2: #2b3325; --color-paper-3: #36402d; --color-ink: #f2f1e5; --color-ink-2: #ced2be; --color-muted: #adb69b; --color-rule: #515e43; --color-edge: #7e8e6c; --color-accent: #c1d49a; --color-accent-hover: #d6e6b7; --color-accent-ink: #25301d; --color-focus: #e9bd83; --color-accent-soft: #3c4c2e; position: relative; padding-block: 100px; border-top: 6px solid #b6c493; }
+.account-grid { gap: 100px; }
+.account-pitch { align-self: start; position: relative; }
+.account-pitch .section-index { margin-bottom: 55px; }
+.account-pitch > svg { width: 30px; height: 30px; }
+.account-pitch h3 { font-size: clamp(3.25rem, 5.2vw, 5rem); margin-top: 24px; letter-spacing: -.055em; line-height: 1.05; }
+.account-pitch h3 em { color: #c1d49a; font-style: normal; }
+.account-pitch > p:not(.section-index) { max-width: 35ch; margin-top: 27px; font-size: 1.15rem; }
+.account-sigil { display: block; width: fit-content; color: #9dad83; font-size: 7rem; line-height: 1; margin-top: 45px; transform: rotate(-12deg); }
+.auth-panel { padding: 32px 0 0; background: transparent; border: none; border-top: 1px solid var(--color-edge); border-radius: 0; }
+.auth-panel h2 { font-size: 2.25rem; letter-spacing: -.04em; }
+.auth-form { gap: 20px; }
+.field input { background: #2b3325; }
+.auth-submit { font-size: 1.1rem; }
+.site-footer { min-height: 122px; }
+.site-footer .brand { margin-right: 0; }
+.footer-season { font-size: .65rem; color: var(--color-muted); }
+.site-footer a:not(.brand) { font-size: .9rem; }
+@media (min-width: 64.01rem) {
+  .hero:has(.platform-picker[open]) .haunted-art { align-self: start; }
+}
+@media (max-width: 64rem) {
+  .hero h1 { font-size: clamp(2.9rem, 6.5vw, 4.6rem); }
+  .haunted-art { min-height: 400px; }
+  .haunted-art > img { width: 120%; }
+  .hero-subtitle { font-size: 1.2rem; }
+  .hero-main { padding-block: 40px 20px; }
+  .art-sticker { font-size: .85rem; right: 0; bottom: 5px; }
+  .feature-grid { gap: 0 35px; }
+  .account-grid { gap: 48px; }
+  .account-pitch .section-index { margin-bottom: 32px; }
+  .account-sigil { position: absolute; bottom: 0; right: 0; margin: 0; font-size: 6rem; opacity: .3; }
+  .account-pitch > p:not(.section-index) { max-width: 45ch; padding-right: 45px; }
+  .auth-panel { width: 100%; max-width: none; }
+}
+@media (max-width: 40rem) {
+  .site-header { min-height: 80px; gap: 7px; }
+  .site-header .brand { gap: 6px; }
+  .site-header .brand img { width: 28px; height: 28px; }
+  .site-header .brand span { font-size: 1.3rem; }
+  .language-switch { gap: 0; font-size: .8rem; }
+  .language-switch button { min-width: 30px; }
+  .login-button { padding: 0 10px; font-size: .9rem; }
+  .hero { padding-top: 19px; padding-bottom: 35px; }
+  .season-label { font-size: .6rem; letter-spacing: .05em; gap: 6px; }
+  .season-dot { width: 5px; height: 5px; }
+  .hero-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .hero-main { padding-block: 40px 0; }
+  .hero h1 { font-size: clamp(2.6rem, 10vw, 4rem); line-height: 1.08; }
+  .hero-copy { margin-top: 28px; gap: 22px; }
+  .hero-subtitle { font-size: 1.2rem; max-width: 30ch; }
+  .download-area { width: 100%; }
+  .mobile-features { margin-top: -12px; }
+  .haunted-art { min-height: 0; height: auto; margin-top: -10px; aspect-ratio: 1.2; }
+  .haunted-art > img { width: 100%; max-height: 100%; object-fit: contain; }
+  .art-caption { top: 15px; font-size: .55rem; right: 10px; }
+  .art-sticker { right: 8px; bottom: 7px; font-size: .8rem; padding: 10px 14px; }
+  .preview-caption { font-size: .6rem; letter-spacing: .05em; flex-wrap: wrap; gap: 6px; }
+  .product-preview { padding: 9px 9px 0; border-radius: 3px; box-shadow: 5px 5px 0 #b9c29e; }
+  .product-preview figcaption { min-height: 38px; font-size: .58rem; gap: 6px; }
+  .product-preview figcaption > span:last-child { display: none; }
+  .product-preview-wrap { padding-bottom: 70px; }
+  .features { padding-bottom: 65px; }
+  .section-index { font-size: .65rem; margin-bottom: 22px; }
+  .features h2 { font-size: 2.3rem; }
+  .features .feature-intro { font-size: 1.1rem; margin-bottom: 30px; }
+  .feature-grid { grid-template-columns: minmax(0, 1fr); }
+  .feature-grid .feature-row { padding-block: 23px; }
+  .feature-grid .feature-row h3 { font-size: 1.35rem; }
+  .feature-grid .feature-row::after { top: 25px; }
+  .account-band { padding-block: 55px 60px; }
+  .account-pitch h3 { font-size: 3.2rem; }
+  .account-pitch > p:not(.section-index) { padding-right: 0; font-size: 1.1rem; }
+  .account-sigil { display: none; }
+  .auth-panel { padding: 28px 0 0; }
+  .auth-panel h2 { font-size: 1.9rem; }
+  .site-footer { gap: 14px; padding-block: 28px; }
+  .footer-season { margin-left: auto; font-size: .55rem; letter-spacing: .04em; }
+  .site-footer a:not(.brand) { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero h1, .product-preview, .auth-inner { animation: none; }
+}

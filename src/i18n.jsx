@@ -1,5 +1,18 @@
 import { createContext, useContext, useEffect, useState } from "react";
 const en = {
+  "Ночная смена · Halloween edition": "Night shift · Halloween edition",
+  "Без страшилок.": "No nightmares.",
+  "Призраки — снаружи.": "Ghosts outside.",
+  "Порядок — внутри.": "Order inside.",
+  "Хэллоуинский коллаж: скелет за старым компьютером в моховом саду": "Halloween collage: a skeleton at an old computer in a mossy garden",
+  "Внутри всё спокойно": "All quiet inside",
+  "СНИППЕТЫ": "SNIPPETS",
+  "КЛЮЧИ": "KEYS",
+  "Настоящий Hopdock. Никакой магии.": "The real Hopdock. No magic tricks.",
+  "Набор на ночную смену": "Your night shift toolkit",
+  "На одной стороне экрана": "On the same side of the screen",
+  "В темноте.": "In the dark.",
+  "На связи.": "Still connected.",
   "Основная навигация": "Main navigation",
   "Перейти к аккаунту": "Skip to account",
   "Hopdock — главная": "Hopdock — home",

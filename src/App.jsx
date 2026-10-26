@@ -183,6 +183,10 @@ export function App() {
     matchMedia("(prefers-reduced-motion: reduce)").matches
       ? "instant"
       : "smooth";
+  function openFeatures(event) {
+    featuresRef.current = event.currentTarget;
+    setFeatures(true);
+  }
   function focusAccount() {
     if (busy) return;
     // The login form is shorter than the sign-up one: lay it out first, so the
@@ -229,9 +233,8 @@ export function App() {
           <LanguageSwitch />
           <nav className="header-nav" aria-label={t("Основная навигация")}>
             <button
-              ref={featuresRef}
               type="button"
-              onClick={() => setFeatures(true)}
+              onClick={openFeatures}
             >
               {t("Возможности")}
             </button>
@@ -262,26 +265,51 @@ export function App() {
         </header>
         <main>
           <section className="container hero" aria-labelledby="hero-title">
-            <h1 id="hero-title">
-              {t("Ваши серверы.")}
-              <br />
-              {t("Ваш порядок.")}
-            </h1>
-            <div className="hero-copy">
-              <p className="hero-subtitle">
-                {t("SSH, ключи и команды — в одном рабочем пространстве.")}
-              </p>
-              <DownloadArea downloadRef={downloadRef} />
-              <button
-                className="mobile-features"
-                type="button"
-                onClick={() => setFeatures(true)}
-              >
-                {t("Возможности")}
-              </button>
+            <div className="season-label">
+              <span className="season-dot" />
+              {t("Ночная смена · Halloween edition")}
+              <span>31 / 10</span>
+            </div>
+            <div className="hero-layout">
+              <div className="hero-main">
+                <h1 id="hero-title">
+                  {t("Ваши серверы.")}
+                  <br />
+                  <em>{t("Без страшилок.")}</em>
+                </h1>
+                <div className="hero-copy">
+                  <p className="hero-subtitle">
+                    {t("SSH, ключи и команды — в одном рабочем пространстве.")}
+                  </p>
+                  <DownloadArea downloadRef={downloadRef} />
+                  <button
+                    className="mobile-features"
+                    type="button"
+                    onClick={openFeatures}
+                  >
+                    {t("Возможности")}
+                  </button>
+                </div>
+              </div>
+              <div className="haunted-art">
+                <span className="art-caption">HOPDOCK AFTER DARK</span>
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/halloween-night.webp`}
+                  width="1254"
+                  height="1254"
+                  alt={t("Хэллоуинский коллаж: скелет за старым компьютером в моховом саду")}
+                />
+                <span className="art-sticker">
+                  {t("Призраки — снаружи.")}<br />{t("Порядок — внутри.")}
+                </span>
+              </div>
             </div>
           </section>
           <div className="container product-preview-wrap">
+            <div className="preview-caption">
+              <span>01 / {t("Внутри всё спокойно")}</span>
+              <span>SSH · {t("КЛЮЧИ")} · {t("СНИППЕТЫ")}</span>
+            </div>
             <figure className="product-preview">
               <img
                 src={`${import.meta.env.BASE_URL}assets/terminal-preview.png`}
@@ -293,12 +321,14 @@ export function App() {
                 fetchPriority="high"
                 draggable="false"
               />
+              <figcaption><span className="season-dot" />{t("Настоящий Hopdock. Никакой магии.")}<span>~/hopdock</span></figcaption>
             </figure>
           </div>
           <section
             className="container features"
             aria-labelledby="features-section-title"
           >
+            <p className="section-index">02 / {t("Набор на ночную смену")}</p>
             <h2 id="features-section-title">
               {t("Рабочее место")} {t("для ваших серверов.")}
             </h2>
@@ -318,9 +348,11 @@ export function App() {
           <div className="account-band">
             <div className="container account-grid">
               <div className="account-pitch">
+                <p className="section-index">03 / {t("На одной стороне экрана")}</p>
                 <CloudArrowUp size={40} weight="light" />
-                <h3>{featureList(t)[3][1]}</h3>
+                <h3>{t("В темноте.")}<br /><em>{t("На связи.")}</em></h3>
                 <p>{featureList(t)[3][2]}</p>
+                <span className="account-sigil" aria-hidden="true">✳</span>
               </div>
               <AuthPanel
                 mode={mode}
@@ -337,6 +369,7 @@ export function App() {
             <img src={`${import.meta.env.BASE_URL}assets/hopdock-mark.svg`} width="32" height="32" alt="" />
             <span>hopdock</span>
           </a>
+          <span className="footer-season">HALLOWEEN EDITION / 2026</span>
           <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
             {t(" Посмотреть проект на GitHub ")}
           </a>
