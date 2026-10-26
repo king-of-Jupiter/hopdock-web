@@ -1,5 +1,6 @@
 import { useI18n, LanguageSwitch } from "./i18n";
 import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import {
   GithubLogo,
   Star,
@@ -184,18 +185,26 @@ export function App() {
       : "smooth";
   function focusAccount() {
     if (busy) return;
-    setMode("login");
-    panelRef.current?.scrollIntoView({
-      behavior: scrollBehavior(),
-      block: "start",
-    });
-    setTimeout(
-      () =>
-        panelRef.current?.querySelector("input,button")?.focus({
-          preventScroll: true,
-        }),
-      100,
-    );
+    // The login form is shorter than the sign-up one: lay it out first, so the
+    // scroll target is final and focus does not cut the smooth scroll short.
+    flushSync(() => setMode("login"));
+    const behavior = scrollBehavior();
+    const focusFirst = () =>
+      panelRef.current?.querySelector("input,button")?.focus({
+        preventScroll: true,
+      });
+    panelRef.current?.scrollIntoView({ behavior, block: "center" });
+    if (behavior === "instant") return focusFirst();
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(fallback);
+      removeEventListener("scrollend", finish);
+      focusFirst();
+    };
+    const fallback = setTimeout(finish, 1200);
+    addEventListener("scrollend", finish);
   }
   return (
     <>
