@@ -22,10 +22,10 @@ npm test
 ## GitHub Pages
 
 1. Для Pages на GitHub Free сделайте только этот репозиторий публичным, когда решите публиковать, затем Settings → Pages → GitHub Actions.
-2. Repository Variables: SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY. Они уже совпадают с Hopdock. BASE_PATH по умолчанию /hopdock-web/; SITE_URL — https://king-of-Jupiter.github.io/hopdock-web/.
-3. В Supabase Auth → URL Configuration добавьте точные Redirect URLs для подтверждения и восстановления: SITE_URL + ?flow=confirmed&lang=ru, ?flow=confirmed&lang=en, ?flow=recovery&lang=ru, ?flow=recovery&lang=en. Для разработки — аналогичные URL на http://127.0.0.1:4173/. Основной Site URL задайте без завершающего слеша: https://king-of-Jupiter.github.io/hopdock-web. Не удалять прежние callback URL приложения.
+2. Repository Variables: SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY. Они уже совпадают с Hopdock. Сайт работает на своём домене: BASE_PATH=/, SITE_URL=https://hopdock.bond/.
+3. В Supabase Auth → URL Configuration добавьте точные Redirect URLs для подтверждения и восстановления: SITE_URL + ?flow=confirmed&lang=ru, ?flow=confirmed&lang=en, ?flow=recovery&lang=ru, ?flow=recovery&lang=en. Для разработки — аналогичные URL на http://127.0.0.1:4173/. Основной Site URL задайте без завершающего слеша: https://hopdock.bond. Не удалять прежние callback URL приложения.
 4. Подключите свой SMTP для писем обычным пользователям; подтверждение email не отключать.
-5. Установите PAGES_ENABLED=true и запустите workflow. Для своего домена BASE_PATH=/, SITE_URL=https://ваш-домен/ и соответствующие точные redirect URLs. Настройте DNS и Enforce HTTPS.
+5. Установите PAGES_ENABLED=true и запустите workflow. Домен hopdock.bond: в Cloudflare A-записи 185.199.108–111.153 для @ и CNAME www на king-of-jupiter.github.io, оба в режиме «только DNS»; в Settings → Pages укажите Custom domain и включите Enforce HTTPS. Переменные меняются только пересборкой: после правки запустите workflow заново.
 
 Регистрация и вход используют SDK Supabase. Сайт не читает хосты, пароли серверов, ключи или зашифрованное хранилище. Пароль аккаунта и пароль шифрования независимы.
 
@@ -49,7 +49,7 @@ npm test
 
 ## Проверки и материалы
 
-docs/reference.png — выбранный макет. design-qa.md — сравнение с реализацией. docs/motion.md — интернет-источники анимаций. docs/terminal-capture.md — реальный скрин Hopdock с отдельным профилем и локальным SSH fixture.
+docs/reference.png — прежний макет, до редизайна. design-qa.md — сравнение с реализацией. docs/motion.md — интернет-источники анимаций. docs/terminal-capture.md — реальный скрин Hopdock с отдельным профилем и локальным SSH fixture.
 
 Для изолированной ручной проверки Auth:
 

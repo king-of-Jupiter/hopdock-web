@@ -29,8 +29,8 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ vars.SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
-          VITE_SITE_URL: ${{ vars.SITE_URL || 'https://king-of-Jupiter.github.io/hopdock-web/' }}
-          VITE_BASE_PATH: ${{ vars.BASE_PATH || '/hopdock-web/' }}
+          VITE_SITE_URL: ${{ vars.SITE_URL || 'https://hopdock.bond/' }}
+          VITE_BASE_PATH: ${{ vars.BASE_PATH || '/' }}
       - run: npm test
       - uses: actions/upload-pages-artifact@v3
         with:
