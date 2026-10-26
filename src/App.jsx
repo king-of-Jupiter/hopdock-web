@@ -94,6 +94,43 @@ function featureList(t) {
     ],
   ];
 }
+function Skull() {
+  return (
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+      <path d="M4 3 28 29M28 3 4 29" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+      <path d="M7 12a9 9 0 0 1 18 0v7l-4 3v5H11v-5l-4-3Z" fill="currentColor" />
+      <path d="m11 13 3 2-3 2m10-4-3 2 3 2M15 20h2m-4 4v3m6-3v3" fill="none" stroke="#000" strokeWidth="2" />
+    </svg>
+  );
+}
+function NightTicker() {
+  const { t } = useI18n();
+  const [paused, setPaused] = useState(false);
+  const message = t("ваши серверы переживут эту ночь");
+  return (
+    <div className={`night-ticker${paused ? " is-paused" : ""}`}>
+      <p className="visually-hidden">{message}</p>
+      <div className="ticker-track" aria-hidden="true">
+        {[0, 1].map((group) => (
+          <div className="ticker-group" key={group}>
+            {[0, 1, 2, 3].map((item) => (
+              <span key={item}><Skull />{message}</span>
+            ))}
+          </div>
+        ))}
+      </div>
+      <button
+        className="ticker-toggle"
+        type="button"
+        onClick={() => setPaused((value) => !value)}
+        aria-label={t(paused ? "Продолжить строку" : "Приостановить строку")}
+        aria-pressed={paused}
+      >
+        <span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span>
+      </button>
+    </div>
+  );
+}
 function Features({ close, triggerRef }) {
   const { t } = useI18n();
   const dialogRef = useRef(null);
@@ -252,7 +289,6 @@ export function App() {
             >
               {t("Скачать")}
             </button>
-            <GithubLink />
             <button
               className="login-button"
               type="button"
@@ -263,19 +299,21 @@ export function App() {
             </button>
           </nav>
         </header>
+        <NightTicker />
         <main>
           <section className="container hero" aria-labelledby="hero-title">
+            <div className="hero-frame">
             <div className="season-label">
-              <span className="season-dot" />
-              {t("Ночная смена · Halloween edition")}
-              <span>31 / 10</span>
+              <span>HOPDOCK / HALLOWEEN EDITION</span>
+              <span>31.10</span>
             </div>
             <div className="hero-layout">
               <div className="hero-main">
                 <h1 id="hero-title">
                   {t("Ваши серверы.")}
+                  {" "}
                   <br />
-                  <em>{t("Без страшилок.")}</em>
+                  {t("Ваш порядок.")}
                 </h1>
                 <div className="hero-copy">
                   <p className="hero-subtitle">
@@ -291,24 +329,13 @@ export function App() {
                   </button>
                 </div>
               </div>
-              <div className="haunted-art">
-                <span className="art-caption">HOPDOCK AFTER DARK</span>
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/halloween-night.webp`}
-                  width="1254"
-                  height="1254"
-                  alt={t("Хэллоуинский коллаж: скелет за старым компьютером в моховом саду")}
-                />
-                <span className="art-sticker">
-                  {t("Призраки — снаружи.")}<br />{t("Порядок — внутри.")}
-                </span>
-              </div>
+            </div>
             </div>
           </section>
           <div className="container product-preview-wrap">
             <div className="preview-caption">
-              <span>01 / {t("Внутри всё спокойно")}</span>
-              <span>SSH · {t("КЛЮЧИ")} · {t("СНИППЕТЫ")}</span>
+              <span>{t("[ экран приложения ]")}</span>
+              <span>SSH / {t("КЛЮЧИ")} / {t("СНИППЕТЫ")}</span>
             </div>
             <figure className="product-preview">
               <img
@@ -321,14 +348,14 @@ export function App() {
                 fetchPriority="high"
                 draggable="false"
               />
-              <figcaption><span className="season-dot" />{t("Настоящий Hopdock. Никакой магии.")}<span>~/hopdock</span></figcaption>
+              <figcaption>{t("Настоящий Hopdock. Никакой магии.")}<span>~/hopdock</span></figcaption>
             </figure>
           </div>
           <section
             className="container features"
             aria-labelledby="features-section-title"
           >
-            <p className="section-index">02 / {t("Набор на ночную смену")}</p>
+            <p className="section-index">{t("[ возможности ]")}</p>
             <h2 id="features-section-title">
               {t("Рабочее место")} {t("для ваших серверов.")}
             </h2>
@@ -348,11 +375,10 @@ export function App() {
           <div className="account-band">
             <div className="container account-grid">
               <div className="account-pitch">
-                <p className="section-index">03 / {t("На одной стороне экрана")}</p>
-                <CloudArrowUp size={40} weight="light" />
-                <h3>{t("В темноте.")}<br /><em>{t("На связи.")}</em></h3>
+                <p className="section-index">{t("[ аккаунт ]")}</p>
+                <Skull />
+                <h3>{t("Синхронизация")}</h3>
                 <p>{featureList(t)[3][2]}</p>
-                <span className="account-sigil" aria-hidden="true">✳</span>
               </div>
               <AuthPanel
                 mode={mode}
@@ -370,9 +396,7 @@ export function App() {
             <span>hopdock</span>
           </a>
           <span className="footer-season">HALLOWEEN EDITION / 2026</span>
-          <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
-            {t(" Посмотреть проект на GitHub ")}
-          </a>
+          <GithubLink />
         </footer>
       </div>
       {features && (
